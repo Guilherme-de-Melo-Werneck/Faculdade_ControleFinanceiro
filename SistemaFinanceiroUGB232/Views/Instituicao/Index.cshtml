@@ -1,0 +1,60 @@
+﻿@model IEnumerable<SistemaFinanceiroUGB232.Models.Instituicao>
+
+@{
+    ViewData["Title"] = "Listagem de Instituições";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+
+<h1>Listagem</h1>
+
+<body>
+    <p>
+        <a asp-action="Create">Novo</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.InstituicaoID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nome)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Endereco)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.InstituicaoID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Endereco)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Editar", "Edit", new { id = item.InstituicaoID }) |
+                        @Html.ActionLink("Detalhes", "Details", new { id = item.InstituicaoID }) |
+                        @Html.ActionLink("Excluir", "Delete", new { id = item.InstituicaoID })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>
