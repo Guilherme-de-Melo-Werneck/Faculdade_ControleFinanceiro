@@ -37,6 +37,10 @@ namespace SistemaFinanceiroUGB232.Controllers
             instituicoes.Add(instituicao);
             return RedirectToAction("Index");
         }
+        public IActionResult Edit(long id)
+        {
+            return View(instituicoes.Where(i => i.InstituicaoID == id).First());
+        }
     }
 }
 
