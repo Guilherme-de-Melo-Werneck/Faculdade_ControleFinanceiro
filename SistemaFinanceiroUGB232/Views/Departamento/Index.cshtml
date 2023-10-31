@@ -1,0 +1,50 @@
+﻿@model IEnumerable<SistemaFinanceiroUGB232.Models.Departamento>
+
+@{
+    ViewData["Title"] = "Listagem de Departamento";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DepartamentoID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartamentoID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {  id=item.DepartamentoID }) |
+                @Html.ActionLink("Details", "Details", new { id=item.DepartamentoID }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.DepartamentoID })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</body>
+</html>

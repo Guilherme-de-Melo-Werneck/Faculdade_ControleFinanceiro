@@ -55,5 +55,17 @@ namespace SistemaFinanceiroUGB232.Controllers
         {
             return View(instituicoes.Where(i => i.InstituicaoID == id).First());
         }
+        public IActionResult Delete(long id)
+        {
+            return View(instituicoes.Where(i => i.InstituicaoID == id).First());
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Delete(Instituicao instituicao)
+        {
+            instituicoes.Remove(instituicoes.Where(i => i.InstituicaoID == instituicao.InstituicaoID).First());
+            return RedirectToAction("Index");
+        }
     }
 }
