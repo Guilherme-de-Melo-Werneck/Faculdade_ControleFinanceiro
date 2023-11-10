@@ -1,0 +1,42 @@
+﻿@model SistemaFinanceiroUGB232.Models.Departamento
+
+@{
+    ViewData["Title"] = "Excluir Departamento";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<body>
+
+    <h3>Tem certeza que deseja excluir?</h3>
+    <div>
+        <h4>Departamento</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.DepartamentoID)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.DepartamentoID)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Nome)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Nome)
+            </dd>
+        </dl>
+
+        <form asp-action="Delete">
+            <input type="submit" value="Deletar" class="btn btn-danger" /> |
+            <a asp-action="Index">Retornar para a listar</a>
+        </form>
+    </div>
+</body>
+</html>
